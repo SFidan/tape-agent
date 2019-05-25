@@ -1,0 +1,182 @@
+body {
+  background-color: #007291;
+  margin: 0px;
+}
+
+#input, h1 {
+  color: #f5c600;
+  text-align: center;
+}
+
+.footer {
+  width: 100vw;
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+  position: fixed;
+  bottom: 20px;
+  text-align: center;
+  color: white;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto auto;
+      grid-template-columns: auto auto auto auto;
+}
+
+.footer li i {
+  font-size: 60px;
+  padding: 0px 20px;
+  text-decoration: none;
+}
+
+.footer a {
+  color: white;
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
+}
+
+.footer a:hover {
+  color: #f5c600;
+  text-shadow: 2px 2px #d8460b;
+}
+
+h1 {
+  font: 100px 'Pacifico', cursive;
+  margin-top: 5px;
+  text-shadow: 3px 3px #d8460b;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-size: 60px;
+  color: #f5c600;
+  background: none;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+}
+
+button:hover {
+  text-shadow: 5px 5px #d8460b;
+}
+
+h2, span, input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  font-family: 'Unica One', cursive;
+}
+
+h2, span, input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  font-family: 'Unica One', cursive;
+}
+
+h2, span, input::-ms-input-placeholder, textarea::-ms-input-placeholder {
+  font-family: 'Unica One', cursive;
+}
+
+h2, span, input::placeholder, textarea::placeholder {
+  font-family: 'Unica One', cursive;
+}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: #007291;
+}
+
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  color: #007291;
+}
+
+input::-ms-input-placeholder, textarea::-ms-input-placeholder {
+  color: #007291;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #007291;
+}
+
+.entry, #letter {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+#letter {
+  top: 40%;
+}
+
+#letter h2 {
+  font-size: 40px;
+  margin-bottom: 5px;
+  margin-top: 40px;
+  text-shadow: 2px 2px #d8460b;
+  color: white;
+}
+
+#letter span {
+  font-size: 25px;
+}
+
+#input input, .textEntry {
+  margin: 20px 0px;
+  background-color: white;
+}
+
+input, textarea {
+  border: none;
+  width: 320px;
+  height: 40px;
+  resize: none;
+}
+
+textarea:focus, input:focus {
+  outline: none;
+}
+
+.textEntry {
+  height: 160px;
+}
+
+.left-enter-active {
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.left-leave-active {
+  -webkit-transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.right-enter-active {
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.right-leave-active {
+  -webkit-transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.left-enter {
+  -webkit-transform: translateX(50vw);
+          transform: translateX(50vw);
+  opacity: 0;
+}
+
+.left-leave-to {
+  -webkit-transform: translateX(-50vw);
+          transform: translateX(-50vw);
+  opacity: 0;
+}
+
+.right-enter {
+  -webkit-transform: translateX(-50vw);
+          transform: translateX(-50vw);
+  opacity: 0;
+}
+
+.right-leave-to {
+  -webkit-transform: translateX(50vw);
+          transform: translateX(50vw);
+  opacity: 0;
+}
+/*# sourceMappingURL=style.css.map */
