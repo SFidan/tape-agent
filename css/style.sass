@@ -1,7 +1,5 @@
 $unica: 'Unica One', cursive
 
-
-  
 body
     background-color: #007291
     margin: 0px
@@ -52,7 +50,7 @@ body
   color: #f5c600
 
 #passEnter input
-  margin-bottom: 20px;
+  margin-bottom: 20px
   
 button
   cursor: pointer
@@ -70,6 +68,7 @@ h2, span, input::placeholder, textarea::placeholder
 
 input::placeholder, textarea::placeholder
   color: #007291
+
 
 .entry, #letter
   position: fixed
@@ -102,7 +101,7 @@ input, textarea
     resize: none
 
 textarea:focus, input:focus
-    outline: none;
+    outline: none
 
 .textEntry
     height: 160px
@@ -134,3 +133,18 @@ textarea:focus, input:focus
 .right-leave-to
   transform: translateX(50vw)
   opacity: 0
+
+.left-enter-active 
+  transition: all .3s ease
+
+.fade-enter 
+  opacity: 0
+
+.fade-enter-active, .fade-leave-active 
+  transition: opacity .3s
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ 
+  opacity: 0
+
+[v-cloak]  
+  opacity: 0; 

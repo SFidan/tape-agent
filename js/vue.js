@@ -6,20 +6,21 @@ var app = new Vue({
         yName: '',
         link: '',
         pass: '',
+        many: 1,
         step: 0,
         transitionName: 'left',
 
     },
     methods: {
-        changeStep(direction){
-            if (direction === 'next'){
+        changeStep(direction) {
+            if (direction === 'next') {
                 this.transitionName = 'left'
                 this.step++
-            }else{
+            } else {
                 this.transitionName = 'right'
                 this.step--;
             }
-          },
+        },
         submit() {
             axios.post('insertData.php', {
                 rName: this.rName,
@@ -31,7 +32,7 @@ var app = new Vue({
                 app.link = response.data.link;
                 app.step++;
             })
-        }
+        },
     },
 })
 
@@ -47,20 +48,20 @@ var app2 = new Vue({
         link: '-85ZLn7alaSHU',
 
     },
-    beforeCreate: function(){
+    beforeCreate: function () {
         axios.post('insertData.php', {
             link: this.link,
             option: 'RETRIEVE',
         }).then(function (response) {
             if (response.data === 'fail' || !response.data) {
                 app2.fail = 1
-            }else{
+            } else {
                 app2.fail = 0
             }
-        })      
+        })
     },
     methods: {
-        verifyTape(){
+        verifyTape() {
             axios.post('insertData.php', {
                 link: this.link,
                 pass: this.pass,
@@ -71,7 +72,7 @@ var app2 = new Vue({
             }).then(function (response) {
                 if (response.data == 'fail') {
                     alert('incorrect pass')
-                }else{
+                } else {
                     app2.yName = response.data.yName
                     app2.rName = response.data.rName
                     app2.tape = response.data.tape
