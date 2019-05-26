@@ -86,11 +86,11 @@ switch($_POST['option']){
                 echo json_encode('dFailed');
             }else{
                 echo json_encode($rows);
-                // if($rows['many'] <= 1){
-                //     $query="DELETE FROM tapes WHERE link = '{$link}'";
-                // }else{
-                //     $query="UPDATE tapes SET many = many-1 WHERE link = '{$link}'";
-                // }
+                if($rows['many'] <= 1){
+                    $query="DELETE FROM tapes WHERE link = '{$link}'";
+                }else{
+                    $query="UPDATE tapes SET many = many-1 WHERE link = '{$link}'";
+                }
                 if($rows['many'] > 1){
                     setcookie($link,"1",$date);
                 }
