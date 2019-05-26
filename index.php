@@ -1,6 +1,6 @@
 <?php include 'top.php'?>
 <div id="app">
-    <h1>Tape Agent</h1>
+    <h1 class='homeTitle'>Tape Agent</h1>
     <div id='input'>
         <transition-group :name="transitionName">
             <div class='entry' :key="0" v-if='step === 0'>
@@ -48,4 +48,10 @@
         </transition-group>
     </div>
 </div>
+<ul class='footer'>
+<li><i class="fab fa-vuejs"></i></li>
+<li><i class="fab fa-sass"></i></li>
+<li><i class="fab fa-php"></i></li>
+<li><a href='https://github.com/SFidan/tape-agent'><i class="fab fa-github"></i></a></li>
+<ul>
 <?php include 'bottom.php'?>

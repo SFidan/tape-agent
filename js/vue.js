@@ -29,7 +29,7 @@ var app = new Vue({
                 option: 'POST',
             }).then(function (response) {
                 app.link = response.data.link;
-                this.step++;
+                app.step++;
             })
         }
     },
@@ -38,14 +38,21 @@ var app = new Vue({
 var app2 = new Vue({
     el: '#app2',
     data: {
-        fail: ''
+        fail: '',
+        success: '',
+        pass: '',
+        yName: '',
+        rName: '',
+        tape: '',
+        link: '-85ZLn7alaSHU',
+
     },
     beforeCreate: function(){
         axios.post('insertData.php', {
-            link: '-123',
+            link: this.link,
             option: 'RETRIEVE',
         }).then(function (response) {
-            if (response.data == 'fail') {
+            if (response.data === 'fail' || !response.data) {
                 app2.fail = 1
             }else{
                 app2.fail = 0
@@ -53,90 +60,25 @@ var app2 = new Vue({
         })      
     },
     methods: {
+        verifyTape(){
+            axios.post('insertData.php', {
+                link: this.link,
+                pass: this.pass,
+                option: 'VERIFY',
+                yName: '',
+                rName: '',
+                tape: ''
+            }).then(function (response) {
+                if (response.data == 'fail') {
+                    alert('incorrect pass')
+                }else{
+                    app2.yName = response.data.yName
+                    app2.rName = response.data.rName
+                    app2.tape = response.data.tape
+                    app2.success = 1
+                    app2.fail = ''
+                }
+            })
+        }
     },
 })
-
-// tapeRetrieve = () => {
-//     $.ajax({
-//         type: "POST",
-//         url: 'insertData.php',
-//         data: {
-//             option: 'RETRIEVE',
-//             link: "-30p1207zmanq"
-//         },
-//         success: function (response) {
-//             var jsonData = JSON.parse(response);
-
-//             if (jsonData.fail) {
-//                 $('#errorMessage').fadeIn(500);
-//             } else {
-//                 $('#passEnter').fadeIn(500);
-//                 tapeVerify(jsonData.link);
-//             }
-//         }
-//     });
-// };
-
-// tapeVerify = (linkPara) => {
-//     $('#passwordForm').submit(function (e) {
-//         e.preventDefault();
-//         var pass = app2.pass;
-//         $.ajax({
-//             type: "POST",
-//             url: 'insertData.php',
-//             data: {
-//                 option: 'VERIFY',
-//                 pass: pass,
-//                 link: linkPara
-//             },
-//             success: function (response) {
-//                 var jsonData = JSON.parse(response);
-//                 if (jsonData.fail) {
-//                     alert('Incorrect Password')
-//                 } else {
-//                     $('#passEnter').fadeOut(500, function () {
-//                         $('#tapeShow').fadeIn(500);
-//                     });
-//                     app2.yName = jsonData.yName,
-//                         app2.tape = jsonData.tape,
-//                         app2.rName = jsonData.rName
-//                 }
-//             }
-//         });
-//     });
-// }
-
-// tapeCreate = () => {
-//     $('#inputForm').submit(function (e) {
-//         e.preventDefault();
-//         var rName = app.rName;
-//         var yName = app.yName;
-//         var pass = app.pass;
-//         var tape = app.tape;
-//         $.ajax({
-//             type: "POST",
-//             url: 'insertData.php',
-//             data: {
-//                 option: 'POST',
-//                 rName: rName,
-//                 yName: yName,
-//                 tape: tape,
-//                 pass: pass
-//             },
-//             success: function (response) {
-//                 var jsonData = JSON.parse(response);
-//                 if (jsonData.success == "1") {
-//                     button.val("Finished");
-//                     $('#input').fadeOut(500, function () {
-//                         $('#letter').fadeIn(500);
-//                     });
-//                     var link = jsonData.link
-//                     app.link = link
-//                     app.pass = pass
-//                 } else {
-//                     alert('Something went wrong');
-//                 }
-//             }
-//         });
-//     });
-// };

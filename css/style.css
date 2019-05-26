@@ -1,11 +1,11 @@
 body {
   background-color: #007291;
   margin: 0px;
+  text-align: center;
 }
 
 #input, h1 {
   color: #f5c600;
-  text-align: center;
 }
 
 .footer {
@@ -40,10 +40,24 @@ body {
   text-shadow: 2px 2px #d8460b;
 }
 
-h1 {
+.homeTitle {
   font: 100px 'Pacifico', cursive;
   margin-top: 5px;
   text-shadow: 3px 3px #d8460b;
+}
+
+.displayTitle {
+  font: 50px "Unica One", cursive;
+  text-shadow: 2px 2px #d8460b;
+}
+
+.displaySubTitle {
+  font: 30px "Unica One", cursive;
+  color: #f5c600;
+}
+
+#passEnter input {
+  margin-bottom: 20px;
 }
 
 button {
@@ -61,19 +75,19 @@ button:hover {
 }
 
 h2, span, input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-  font-family: 'Unica One', cursive;
+  font-family: "Unica One", cursive;
 }
 
 h2, span, input:-ms-input-placeholder, textarea:-ms-input-placeholder {
-  font-family: 'Unica One', cursive;
+  font-family: "Unica One", cursive;
 }
 
 h2, span, input::-ms-input-placeholder, textarea::-ms-input-placeholder {
-  font-family: 'Unica One', cursive;
+  font-family: "Unica One", cursive;
 }
 
 h2, span, input::placeholder, textarea::placeholder {
-  font-family: 'Unica One', cursive;
+  font-family: "Unica One", cursive;
 }
 
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {

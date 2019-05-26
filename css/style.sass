@@ -1,11 +1,15 @@
+$unica: 'Unica One', cursive
+
+
+  
 body
     background-color: #007291
     margin: 0px
+    text-align: center
     
 
 #input, h1
   color: #f5c600
-  text-align: center
 
 .footer
   width: 100vw
@@ -33,11 +37,23 @@ body
   text-shadow: 2px 2px #d8460b
 
 
-h1
+.homeTitle
   font: 100px 'Pacifico', cursive
   margin-top: 5px
   text-shadow: 3px 3px #d8460b
 
+
+.displayTitle
+  font: 50px $unica
+  text-shadow: 2px 2px #d8460b
+
+.displaySubTitle
+  font: 30px $unica
+  color: #f5c600
+
+#passEnter input
+  margin-bottom: 20px;
+  
 button
   cursor: pointer
   border: none
@@ -50,7 +66,7 @@ button:hover
   text-shadow: 5px 5px #d8460b
 
 h2, span, input::placeholder, textarea::placeholder
-  font-family: 'Unica One', cursive
+  font-family: $unica
 
 input::placeholder, textarea::placeholder
   color: #007291
