@@ -115,7 +115,7 @@ input::placeholder, textarea::placeholder {
 }
 
 #letter {
-  top: 40%;
+  top: 55%;
 }
 
 #letter h2 {
@@ -140,6 +140,10 @@ input, textarea {
   width: 320px;
   height: 40px;
   resize: none;
+}
+
+.numEntry {
+  width: 35px;
 }
 
 textarea:focus, input:focus {
@@ -199,10 +203,6 @@ textarea:focus, input:focus {
   transition: all .3s ease;
 }
 
-.fade-enter {
-  opacity: 0;
-}
-
 .fade-enter-active, .fade-leave-active {
   -webkit-transition: opacity .3s;
   transition: opacity .3s;
@@ -212,7 +212,76 @@ textarea:focus, input:focus {
   opacity: 0;
 }
 
-[v-cloak] {
+.error-enter-active, .error-leave-active {
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+}
+
+.error-enter, .error-leave-to {
   opacity: 0;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+.initial {
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  opacity: 0;
+}
+
+.active {
+  opacity: 1;
+}
+
+.errorTitle {
+  color: white;
+  margin: 0px;
+}
+
+.left-alt-enter-active {
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.left-alt-leave-active {
+  -webkit-transition: all 1s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 1s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.left-alt-enter {
+  -webkit-transform: translateX(50vw);
+          transform: translateX(50vw);
+  opacity: 0;
+}
+
+.left-alt-leave-to {
+  -webkit-transform: translateX(-50vw);
+          transform: translateX(-50vw);
+  opacity: 0;
+}
+
+.left-alt-enter-active {
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+#tapeShow {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  width: 90%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+}
+
+#tapeShow h1, h2 {
+  color: #f5c600;
+}
+
+#tapeShow p {
+  word-wrap: break-word;
+  color: white;
 }
 /*# sourceMappingURL=style.css.map */

@@ -77,7 +77,7 @@ input::placeholder, textarea::placeholder
   transform: translate(-50%, -50%)
 
 #letter
-  top: 40%
+  top: 55%
 
 #letter h2
   font-size: 40px
@@ -99,6 +99,9 @@ input, textarea
     width: 320px
     height: 40px
     resize: none
+
+.numEntry
+  width: 35px
 
 textarea:focus, input:focus
     outline: none
@@ -137,14 +140,59 @@ textarea:focus, input:focus
 .left-enter-active 
   transition: all .3s ease
 
-.fade-enter 
-  opacity: 0
-
 .fade-enter-active, .fade-leave-active 
   transition: opacity .3s
 
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ 
+.fade-enter, .fade-leave-to
+  opacity: 0
+
+.error-enter-active, .error-leave-active 
+  transition: opacity .5s
+
+.error-enter, .error-leave-to
   opacity: 0
 
 [v-cloak]  
-  opacity: 0; 
+  display: none
+
+.initial
+  transition: all 1s
+  opacity: 0
+
+.active
+  opacity: 1
+
+.errorTitle
+  color: white
+  margin: 0px
+
+.left-alt-enter-active 
+  transition: all 1s ease
+
+.left-alt-leave-active 
+  transition: all 1s cubic-bezier(1.0, 0.5, 0.8, 1.0)
+
+.left-alt-enter
+  transform: translateX(50vw)
+  opacity: 0
+
+.left-alt-leave-to
+  transform: translateX(-50vw)
+  opacity: 0
+
+.left-alt-enter-active 
+  transition: all 1s ease
+
+#tapeShow
+  position: absolute
+  top: 10%
+  left: 50%
+  width: 90%
+  transform: translate(-50%)
+
+#tapeShow h1, h2
+     color: #f5c600
+     
+#tapeShow p
+  word-wrap: break-word
+  color: white

@@ -5,13 +5,17 @@ $database = "tapeagent";
 $_POST = json_decode(file_get_contents("php://input"),true);
 switch($_POST['option']){
     case 'POST':
-        $rName = $_POST['rName'];
-        $yName = $_POST['yName'];
+        $many = $_POST['many'];
         $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-        $tape = $_POST['tape'];
+        $timer = $_POST['timer'];
+        $code1 = $_POST['code1'];
+        $code2 = $_POST['code2'];
+        $tape = encrypt_decrypt('encrypt', $_POST['tape'], $code1, $code2);
+        $yName = encrypt_decrypt('encrypt', $_POST['yName'], $code1, $code2);
+        $rName = encrypt_decrypt('encrypt', $_POST['rName'], $code1, $code2);
         $mysqli = new mysqli("localhost", $username, $password, $database);
         $today = date('Y-m-d');
-        $query="INSERT INTO tapes(rName, yName, pass, tape, date) VALUES ('{$rName}','{$yName}','{$pass}','{$tape}', '{$today}')";
+        $query="INSERT INTO tapes(rName, yName, pass, tape, date, many, timer) VALUES ('{$rName}','{$yName}','{$pass}','{$tape}', '{$today}', '{$many}', '{$timer}')";
         $mysqli->query("$query");
         $num =  $mysqli->affected_rows;
         $random = array();
@@ -46,13 +50,17 @@ switch($_POST['option']){
         exit();
     case 'RETRIEVE':
         $link = $_POST['link'];
-        $query="SELECT link FROM tapes WHERE link = '{$link}'";
+        $query="SELECT link, many FROM tapes WHERE link = '{$link}'";
         $mysqli = new mysqli("localhost", $username, $password, $database);
         $result = $mysqli->query("$query");
         $numRows = mysqli_num_rows($result);
         if($numRows > 0){
             $rows =  $result->fetch_assoc();
-            echo json_encode($rows);
+            if($rows['many'] >= 1){
+                echo json_encode($rows);
+            }else{
+                echo json_encode('noViews');
+            }
         }else{
             echo json_encode('fail');
         }
@@ -67,11 +75,39 @@ switch($_POST['option']){
         $numRows = mysqli_num_rows($result);
         $rows =  $result->fetch_assoc();
         if(password_verify($pass, $rows['pass'])){
-            echo json_encode($rows);
+            $rows['yName'] = encrypt_decrypt('decrypt',  $rows['yName'], $_POST['code1'], $_POST['code2']);
+            $rows['rName'] = encrypt_decrypt('decrypt',  $rows['rName'], $_POST['code1'], $_POST['code2']);
+            $rows['tape'] = encrypt_decrypt('decrypt',  $rows['tape'], $_POST['code1'], $_POST['code2']);
+            if($rows['tape'] == false || $rows['yName'] == false || $rows['rName'] == false ){
+                echo json_encode('dFailed');
+            }else{
+                echo json_encode($rows);
+                // if($rows['many'] <= 1){
+                //     $query="DELETE FROM tapes WHERE link = '{$link}'";
+                // }else{
+                //     $query="UPDATE tapes SET many = many-1 WHERE link = '{$link}'";
+                // }
+            }
+        $mysqli->query("$query");
         }else{
             echo json_encode('fail');
         }
         $mysqli->close();
         exit();
+}
+function encrypt_decrypt($action, $string, $secret_key, $secret_iv)
+{
+    $output = false;
+    $encrypt_method = "AES-256-CBC";
+    $key = hash('sha256', $secret_key);
+    $iv = substr(hash('sha256', $secret_iv), 0, 16);
+    if ($action == 'encrypt') {
+        $output = base64_encode(openssl_encrypt($string, $encrypt_method, $key, 0, $iv));
+    } else {
+        if ($action == 'decrypt') {
+            $output = openssl_decrypt(base64_decode($string), $encrypt_method, $key, 0, $iv);
+        }
+    }
+    return $output;
 }
 ?>
