@@ -1,11 +1,19 @@
 <?php include 'top.php'?>
 <div v-cloak id="app2">
-
         <div>
             <h1 class='displayTitle initial' v-bind:class="{ active: isActive}" v-if='fail === 1'>No
                 Tape Found</h1>
-            <h1 class='displayTitle initial' v-bind:class="{ active: isActive}" v-if='fail === 0'>We
-                have a tape for You</h1>
+            <div class="second-cassette cassette initial" v-bind:class="{ active: isActive}" v-if='fail === 0'>
+                <div class="innerbox">
+                    <div class="label">
+                        <span>for you<span>
+                    </div>
+                    <div class="spin1">
+                    </div>
+                    <div class="spin2">
+                    </div>
+                </div>
+            </div>
             <h1 class='displayTitle initial' v-bind:class="{ active: isActive}" v-if='fail === 2'>This
                 tape has already been viewed</h1>
         </div>
