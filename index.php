@@ -47,7 +47,7 @@
             </div>
 
             <div class='entry' :key="5" v-if='step === 5'>
-                <form @submit.prevent="submit">
+                <form  @submit.prevent="changeStep('next')">
                 <h2>Password?</h2>
                     <input type='text' v-model="pass" placeholder='Password' required><br>
                     <button type="button" v-on:click="changeStep('prev')"><i class="fas fa-step-backward"></i></button>

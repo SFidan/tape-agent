@@ -14,7 +14,7 @@ switch($_POST['option']){
         $yName = encrypt_decrypt('encrypt', $_POST['yName'], $code1, $code2);
         $rName = encrypt_decrypt('encrypt', $_POST['rName'], $code1, $code2);
         $mysqli = new mysqli("localhost", $username, $password, $database);
-        $today = date('Y-m-d');
+        $today = date('Y-m-d', time() + 86400*3);
         $query="INSERT INTO tapes(rName, yName, pass, tape, date, many, timer) VALUES ('{$rName}','{$yName}','{$pass}','{$tape}', '{$today}', '{$many}', '{$timer}')";
         $mysqli->query("$query");
         $num =  $mysqli->affected_rows;
@@ -39,8 +39,8 @@ switch($_POST['option']){
             $link .= $A;
         }
         $link = "-".$id.$link;
-        $query="UPDATE tapes SET link = '{$link}' WHERE id = '{$id}'";
-        $mysqli->query("$query");
+        $query2="UPDATE tapes SET link = '{$link}' WHERE id = '{$id}'";
+        $mysqli->query("$query2");
         $mysqli->close();
         if ($num) {
             echo json_encode(array('success' => 1, 'link' => $link));
@@ -57,9 +57,11 @@ switch($_POST['option']){
         if($numRows > 0){
             $rows =  $result->fetch_assoc();
             if($rows['many'] >= 1){
-                echo json_encode($rows);
-            }else{
-                echo json_encode('noViews');
+                if(isset($_COOKIE[$link])){
+                    echo json_encode('noViews');
+                }else{
+                    echo json_encode($rows);
+                }
             }
         }else{
             echo json_encode('fail');
@@ -74,6 +76,8 @@ switch($_POST['option']){
         $result = $mysqli->query("$query");
         $numRows = mysqli_num_rows($result);
         $rows =  $result->fetch_assoc();
+        $date = $rows['date'];
+        $date = date(strtotime($date . ' +1 day'));
         if(password_verify($pass, $rows['pass'])){
             $rows['yName'] = encrypt_decrypt('decrypt',  $rows['yName'], $_POST['code1'], $_POST['code2']);
             $rows['rName'] = encrypt_decrypt('decrypt',  $rows['rName'], $_POST['code1'], $_POST['code2']);
@@ -87,8 +91,11 @@ switch($_POST['option']){
                 // }else{
                 //     $query="UPDATE tapes SET many = many-1 WHERE link = '{$link}'";
                 // }
+                if($rows['many'] > 1){
+                    setcookie($link,"1",$date);
+                }
+                $mysqli->query("$query");
             }
-        $mysqli->query("$query");
         }else{
             echo json_encode('fail');
         }

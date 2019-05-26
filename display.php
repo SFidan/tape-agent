@@ -6,8 +6,6 @@
                 Tape Found</h1>
             <h1 class='displayTitle initial' v-bind:class="{ active: isActive}" v-if='fail === 0'>We
                 have a tape for You</h1>
-            <h3 class='displaySubTitle initial' v-bind:class="{ active: isActiveMid}" v-if='fail === 0'>
-                But We'll need a password first</h3>
             <h1 class='displayTitle initial' v-bind:class="{ active: isActive}" v-if='fail === 2'>This
                 tape has already been viewed</h1>
         </div>
@@ -27,13 +25,14 @@
             </form>
         </div>
 
-        <div :key="2" v-if='success === 1' id='tapeShow' class=''>
+        <div :key="2" v-if='success === 1' id='tapeShow'>
             <div v-if="step === 1">
                 <h1>To: {{ rName }}</h1>
-                <h2>The following message has been approved for your eyes only:</h2>
-                <p>{{ tape }}</p>
+                <div class='tapeDiv'>
+                    <p>{{ tape }}</p>
+                </div>
                 <h2>From: {{ yName }}</h2>
-                <h2>This Message will self destruct in {{destruct}} seconds</h2>
+                <h3>This Message will self destruct in {{destruct}} seconds</h3>
             </div>
             <div v-if="step === 2">
                 <h2>Message self destruct</h2>
