@@ -73,7 +73,7 @@ var app2 = new Vue({
         isActiveMid: false,
         isActiveLast: false,
         destruct: 0,
-        link: '-17557V4fEkybR',
+        link: window.location.pathname.substr(window.location.pathname.lastIndexOf('/')+1).replace('/', ''),
         step: 1
 
     },
