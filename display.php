@@ -47,7 +47,7 @@
                 <div class="second-cassette third-cassette cassette">
                 <div class="innerbox">
                     <div class="label">
-                        <span id='ranga'>----<span>
+                        <span id='ranga'>goodbye<span>
                     </div>
                     <div class="spin1 second-spin">
                     </div>
