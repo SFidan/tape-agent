@@ -43,7 +43,7 @@
                 <h3>This Message will self destruct in {{destruct}} seconds</h3>
             </div>
             <div v-if="step === 2">
-                <h2>Message self destruct</h2>
+                <h2>Message Destroyed</h2>
                 <div class="second-cassette third-cassette cassette">
                 <div class="innerbox">
                     <div class="label">
