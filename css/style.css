@@ -485,8 +485,8 @@ textarea:focus, input:focus {
 }
 
 .second-spin.spin1:after, .second-spin.spin2:after {
-  -webkit-animation: rotation 1s infinite linear;
-          animation: rotation 1s infinite linear;
+  -webkit-animation: rotation 1s linear;
+          animation: rotation 1s linear;
 }
 
 @-webkit-keyframes rotation {
