@@ -377,8 +377,8 @@ textarea:focus, input:focus {
   padding-top: 12px;
   overflow: hidden;
   cursor: pointer;
-  -webkit-transition: all .15s;
-  transition: all .15s;
+  -webkit-transition: all .2s;
+  transition: all .2s;
 }
 
 .second-cassette {
@@ -401,8 +401,8 @@ textarea:focus, input:focus {
   height: 150px;
   width: 94%;
   border-radius: 3px;
-  -webkit-box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.3);
-          box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.3);
   padding-top: 15px;
   text-align: center;
 }
@@ -489,5 +489,14 @@ textarea:focus, input:focus {
   to {
     -webkit-transform: rotate(359deg);
   }
+}
+
+#letter #ranga, #ranga {
+  font-family: 'Yellowtail', cursive;
+}
+
+#ranga {
+  color: #d8460b;
+  text-transform: lowercase;
 }
 /*# sourceMappingURL=style.css.map */

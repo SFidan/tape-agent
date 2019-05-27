@@ -6,7 +6,7 @@
             <div class="second-cassette cassette initial" v-bind:class="{ active: isActive}" v-if='fail === 0'>
                 <div class="innerbox">
                     <div class="label">
-                        <span>for you<span>
+                        <span id='ranga'>for you<span>
                     </div>
                     <div class="spin1">
                     </div>

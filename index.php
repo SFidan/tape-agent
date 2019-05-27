@@ -6,7 +6,7 @@
             <div v-on:click="changeStep('next')" class="cassette" :key="1" v-if='step === 0'>
                 <div class="innerbox">
                     <div class="label">
-                        <span>click me<span>
+                        <span id='ranga'>click me<span>
                     </div>
                     <div class="spin1">
                     </div>
@@ -74,10 +74,10 @@
             </div>
 
             <div id='letter' :key="8" v-if='step === 7'>
-                <h2>Your link:</h2><span>tapeagent.app/{{ link }}</span>
-                <h2>Your password:</h2><span>{{ pass }}</span>
-                <h2>Your First Codeword:</h2><span>{{ code1 }}</span>
-                <h2>Your Second Codeword:</h2><span>{{ code2 }}</span>
+                <h2>Your link:</h2><span id='ranga'>tapeagent.app/{{ link }}</span>
+                <h2>Your password:</h2><span id='ranga'>{{ pass }}</span>
+                <h2>Your First Codeword:</h2><span id='ranga'>{{ code1 }}</span>
+                <h2>Your Second Codeword:</h2><span id='ranga'>{{ code2 }}</span>
             </div>
 
         </transition-group>
