@@ -44,6 +44,17 @@
             </div>
             <div v-if="step === 2">
                 <h2>Message self destruct</h2>
+                <div class="second-cassette cassette initial" v-bind:class="{ active: isActive}" v-if='fail === 0'>
+                <div class="innerbox">
+                    <div class="label">
+                        <span id='ranga'>for you<span>
+                    </div>
+                    <div class="spin1">
+                    </div>
+                    <div class="spin2">
+                    </div>
+                </div>
+            </div>
             </div>
         </div>
     </transition-group>
