@@ -28,7 +28,6 @@ var app = new Vue({
             }
         },
         submit() {
-            alert('test');
             axios.post('insertData.php', {
                 rName: this.rName,
                 tape: this.tape,
@@ -40,7 +39,6 @@ var app = new Vue({
                 code2: this.code2,
                 timer: this.timer,
             }).then(function (response) {
-                alert(response)
                 app.link = response.data.link;
                 app.step++;
             })
