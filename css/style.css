@@ -396,10 +396,6 @@ textarea:focus, input:focus {
   cursor: unset;
 }
 
-.third-cassette {
-  opacity: 0;
-}
-
 .innerbox {
   margin: 0 auto;
   height: 150px;
