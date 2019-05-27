@@ -14,7 +14,7 @@ switch($_POST['option']){
         $yName = encrypt_decrypt('encrypt', $_POST['yName'], $code1, $code2);
         $rName = encrypt_decrypt('encrypt', $_POST['rName'], $code1, $code2);
         $mysqli = new mysqli("localhost", $username, $password, $database);
-        if ($conn->connect_error) {
+        if ($mysqli->connect_error) {
             echo json_encode("Connection failed: " . $conn->connect_error);
         } 
         $today = date('Y-m-d', time() + 86400*3);
