@@ -74,10 +74,10 @@
             </div>
 
             <div id='letter' :key="8" v-if='step === 7'>
-                <h2>Your link:</h2><span id='ranga'>tapeagent.app/{{ link }}</span>
-                <h2>Your password:</h2><span id='ranga'>{{ pass }}</span>
-                <h2>Your First Codeword:</h2><span id='ranga'>{{ code1 }}</span>
-                <h2>Your Second Codeword:</h2><span id='ranga'>{{ code2 }}</span>
+                <h2>Your link:</h2><span id='ranga' style="f5c600">tapeagent.app/{{ link }}</span>
+                <h2>Your password:</h2><span id='ranga' style="f5c600">{{ pass }}</span>
+                <h2>Your First Codeword:</h2><span id='ranga' style="f5c600">{{ code1 }}</span>
+                <h2>Your Second Codeword:</h2><span id='ranga' style="f5c600">{{ code2 }}</span>
             </div>
 
         </transition-group>
