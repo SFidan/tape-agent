@@ -28,6 +28,7 @@ var app = new Vue({
             }
         },
         submit() {
+            alert('test');
             axios.post('insertData.php', {
                 rName: this.rName,
                 tape: this.tape,
