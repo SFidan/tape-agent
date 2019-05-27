@@ -44,14 +44,14 @@
             </div>
             <div v-if="step === 2">
                 <h2>Message self destruct</h2>
-                <div class="second-cassette cassette"'>
+                <div class="second-cassette third-cassette cassette">
                 <div class="innerbox">
                     <div class="label">
-                        <span id='ranga'>for you<span>
+                        <span id='ranga'>----<span>
                     </div>
-                    <div class="spin1">
+                    <div class="spin1 second-spin">
                     </div>
-                    <div class="spin2">
+                    <div class="spin2 second-spin">
                     </div>
                 </div>
             </div>

@@ -458,6 +458,10 @@ textarea:focus, input:focus {
   -webkit-animation: rotation 3s infinite linear;
 }
 
+.second-spin {
+  -webkit-animation: none;
+}
+
 .spin2 {
   display: inline-block;
   width: 53px;
