@@ -19,7 +19,7 @@
                 <form @submit.prevent="changeStep('next')">
                     <input type='number' min='1' max='10' class='nameEntry numEntry' maxlength="50" v-model="many"
                         required><br>
-                    <h2>And how seconds should it show for?</h2>
+                    <h2>How many seconds should it show for?</h2>
                     <input type='number' min='1' max='20' class='nameEntry numEntry' maxlength="50" v-model="timer"
                         required><br>
                     <button type='submit'><i class="fas fa-step-forward"></i></button>
@@ -27,7 +27,7 @@
             </div>
 
             <div class='entry' :key="3" v-if='step === 2'>
-                <h2>What are they called?</h2>
+                <h2>What are the recipients names?</h2>
                 <form @submit.prevent="changeStep('next')">
                     <input class='nameEntry' maxlength="50" v-model="rName" placeholder='Their Name(s)' required><br>
                     <button type="button" v-on:click="changeStep('prev')"><i class="fas fa-step-backward"></i></button>
